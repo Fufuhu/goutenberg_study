@@ -7,28 +7,20 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <>
+        <h1>ドキュメントをPDFに変換</h1>
+
+        <form action="http://localhost:3000/forms/libreoffice/convert" method="POST" encType="multipart/form-data">
+          <label htmlFor="fileUpload">変換するファイルを選択してください (.docx):</label><br/>
+          <input type="file" id="fileUpload" name="files" accept=".docx"/><br/><br/>
+          <input type="submit" value="変換してPDFをダウンロード"/>
+        </form>
+
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          注: このフォームは、ローカルで動作している変換サービス (例: Node.js サーバーなど) を想定しています。<br/>
+          サーバー側の実装によって、ダウンロードの挙動が異なる場合があります。
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      </>
   )
 }
 
