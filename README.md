@@ -1,3 +1,11 @@
+# 動かし方
+
+```bash
+docker compose up -d --build
+```
+
+ブラウザでhttp://localhostにアクセスすると、docx -> pdfの変換を体験できます。
+
 # 動作サンプル
 
 
@@ -7,3 +15,4 @@ curl \
   --form files=@./test.docx \
   -o my.pdf
 ```
+
